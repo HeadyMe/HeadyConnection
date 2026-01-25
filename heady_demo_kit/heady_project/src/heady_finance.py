@@ -1,0 +1,1 @@
+class HeadyCoin: pass

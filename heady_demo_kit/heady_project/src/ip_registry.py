@@ -1,0 +1,1 @@
+class IPRegistry: pass
