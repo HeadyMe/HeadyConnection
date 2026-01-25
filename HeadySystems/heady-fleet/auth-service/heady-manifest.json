@@ -1,0 +1,16 @@
+{
+  "project": "auth-service",
+  "domain": "auth.heady.io",
+  "built_at": "2026-01-25T01:28:17.352160",
+  "governance": "HeadySystems v12.1",
+  "foundation_trust_domain": "Identity_Root",
+  "heady_coin_pow": "hc_v1_0890b5294a1e729d",
+  "_heady_archive": {
+    "status": "preserved",
+    "context_tags": [
+      "auth-service",
+      "v12.1"
+    ],
+    "timestamp": "now"
+  }
+}

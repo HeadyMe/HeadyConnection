@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "generated_at": "2026-01-25T01:28:17.279458",
+    "source_config_hash": "7d58eb219f7b65151fcf5dbd8a241c72b43feb342a7d65965a7484efaf579497"
+  },
+  "frozen_config": {
+    "workspace": "./heady-fleet",
+    "defaults": {
+      "php_version": "8.3"
+    },
+    "projects": [
+      {
+        "slug": "auth-service",
+        "apex_domain": "auth.heady.io",
+        "trust_domain": "Identity_Root"
+      },
+      {
+        "slug": "guardian-gateway",
+        "apex_domain": "gate.secure",
+        "vertical": "security",
+        "trust_domain": "Security_Root"
+      }
+    ]
+  }
+}
