@@ -1,2 +1,0 @@
-# HeadySystems
-Official HeadySystems Repository
