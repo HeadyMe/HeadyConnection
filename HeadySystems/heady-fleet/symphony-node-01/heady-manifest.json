@@ -1,0 +1,16 @@
+{
+  "project": "symphony-node-01",
+  "domain": null,
+  "gov": "Heady v12.3",
+  "society_module": "HeadySymphony",
+  "heady_coin_pow": "hc_v1_8eed18c0f2700a08",
+  "_heady_archive": {
+    "status": "preserved",
+    "tags": [
+      "symphony-node-01",
+      "v12.3"
+    ],
+    "ts": "2026-01-25T08:31:09.094422",
+    "target": "Forever Vault"
+  }
+}
