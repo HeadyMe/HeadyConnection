@@ -1,0 +1,48 @@
+# Dependabot configuration file
+# This file enables automated dependency updates for multiple package ecosystems.
+# See GitHub's Dependabot documentation for details on configuration options【388271434313053†L594-L641】.
+
+version: 2
+
+updates:
+  # Enable version updates for GitHub Actions workflows. Dependabot will
+  # check action versions defined in files under `.github/workflows` and
+  # create pull requests to update them weekly【388271434313053†L615-L652】.
+  - package-ecosystem: "github-actions"
+    directory: "/"  # location of your workflow files (root covers `.github/workflows`)
+    schedule:
+      interval: "weekly"
+
+  # Enable updates for Node.js projects using npm or yarn. Dependabot
+  # will look for `package.json` and `package-lock.json` or `yarn.lock` at
+  # the specified directory and raise daily update PRs【388271434313053†L594-L641】.
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    # Limit the number of open pull requests so updates stay manageable.
+    open-pull-requests-limit: 5
+
+  # Enable updates for Python projects using pip. Dependabot will
+  # scan `requirements.txt` or `pyproject.toml` files in the root
+  # directory and check weekly for new versions.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Enable updates for Dockerfiles. Dependabot examines base images and
+  # dependency declarations in `Dockerfile` files and checks for new
+  # versions weekly【388271434313053†L607-L642】.
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+# Notes:
+# - Adjust the `directory` field if your manifest files reside in
+#   subdirectories (e.g., `/backend` or `/frontend`).
+# - You can add additional `package-ecosystem` entries for other
+#   languages (e.g., "maven" for Java, "composer" for PHP) as needed.
+# - To receive updates for indirect dependencies, or configure security
+#   updates only, consult the GitHub Docs.
