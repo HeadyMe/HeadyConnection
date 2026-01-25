@@ -1,0 +1,8 @@
+{
+  "project": "guardian-gateway",
+  "domain": null,
+  "gov": "Heady v12.3",
+  "foundation_trust_domain": "Security_Root",
+  "security_gateway": "Active",
+  "heady_coin_pow": "hc_v1_3321bbb1c1b23ecd"
+}
