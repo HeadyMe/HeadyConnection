@@ -1,0 +1,1 @@
+class HeadySymphony: pass
