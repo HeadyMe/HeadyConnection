@@ -1,0 +1,16 @@
+{
+  "project": "auth-service",
+  "domain": "auth.heady.io",
+  "gov": "Heady v12.3",
+  "foundation_trust_domain": "Identity_Root",
+  "heady_coin_pow": "hc_v1_88e89efdb9852b5e",
+  "_heady_archive": {
+    "status": "preserved",
+    "tags": [
+      "auth-service",
+      "v12.3"
+    ],
+    "ts": "2026-01-25T08:31:09.093931",
+    "target": "Forever Vault"
+  }
+}
