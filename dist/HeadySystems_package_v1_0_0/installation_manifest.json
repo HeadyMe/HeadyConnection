@@ -1,0 +1,106 @@
+{
+  "generated_at": "2026-01-25T14:10:28.520698Z",
+  "version": "1.0.0",
+  "files": {
+    "verify_heady_reflect.py": {
+      "size_bytes": "341",
+      "sha256": "2ee2ec8a20b15e8ac6d52e35a3e30a01aa7557439185c3f3f41f2ef2c79a0ac2"
+    },
+    "Heady_it2_v_1_0_0.py": {
+      "size_bytes": "467",
+      "sha256": "ced53ea328ebd7dd7564bcf156c4bb9d357da13b60ed6c4a81f2b8b65f67e280"
+    },
+    "Heady_Golden_Master_Builder_v_1_0_0.py": {
+      "size_bytes": "6421",
+      "sha256": "a42652c67fbf8f3dfd850bb2960ce01e08e347e673ec3be288e2c0997b4ffc71"
+    },
+    "Heady_it1_v_1_0_0.py": {
+      "size_bytes": "488",
+      "sha256": "53e5636195d98755690d851d87010da1b7506624ba1581840e7046720143c3f3"
+    },
+    "Heady_it3_v_1_0_0.py": {
+      "size_bytes": "427",
+      "sha256": "0e9b0245ac8009c62e4b76de2f119a5604bb32705ec82f4be5bd6a20c59b1502"
+    },
+    "setup_local.sh": {
+      "size_bytes": "1753",
+      "sha256": "a760a5c6510dfbfd48ef68679122d94b210d6e0aca1f5b3533138c8f315f792a"
+    },
+    "apply_heady_golden_master.sh": {
+      "size_bytes": "877",
+      "sha256": "5933cef98f8b82d6cbbf22306c368f13b8f9884d5df31485a133cc5565da75c1"
+    },
+    "actuator.py": {
+      "size_bytes": "1367",
+      "sha256": "1aefb5388bfb99139f8ed9fc839c3ede8d229c143cffea886fcc1883b8125e16"
+    },
+    "DELIVERY_MANIFEST.md": {
+      "size_bytes": "294",
+      "sha256": "8e4b135184ac01ef7683660e954c337e83d4d43760638bd7d54018ab3d2fc16b"
+    },
+    "Heady_it4_v_1_0_0.py": {
+      "size_bytes": "524",
+      "sha256": "f7b868007043f186a04f12bd1b4617d73364b28c64e1669278a5f914772779e1"
+    },
+    "Heady_Release_Manager.py": {
+      "size_bytes": "4489",
+      "sha256": "6d629d3d915d8c067d0fd07e2c1978d85055ba95dc3ee3444b8053e5a1d98bcb"
+    },
+    "heady_project/src/compute_throttle.py": {
+      "size_bytes": "693",
+      "sha256": "cd45934dc4394d2c96bb8969468a8feb012dcc7d80a3d9987e089e53fe9626f7"
+    },
+    "heady_project/src/heady_reflect.py": {
+      "size_bytes": "66",
+      "sha256": "2e51539884908603adea09cf5f485355c42b0185c9f177f002fb876d3e931651"
+    },
+    "heady_project/src/ip_registry.py": {
+      "size_bytes": "77",
+      "sha256": "a9962db9760d915fd02e82f40b65db5ce159c124acfbe487e71f0e6c497e547f"
+    },
+    "heady_project/src/stream_generator.py": {
+      "size_bytes": "1649",
+      "sha256": "914a251961dbc366b8ccc0fc00720c88414465104e88670b44550154e302df9b"
+    },
+    "heady_project/src/api_server.py": {
+      "size_bytes": "1457",
+      "sha256": "14f8c55cecae835eeaf30c404e271a45104da07c3c19c60214f5457dca0cd097"
+    },
+    "releases/current/Heady_it2_v_1_0_0.py": {
+      "size_bytes": "467",
+      "sha256": "ced53ea328ebd7dd7564bcf156c4bb9d357da13b60ed6c4a81f2b8b65f67e280"
+    },
+    "releases/current/Heady_it1_v_1_0_0.py": {
+      "size_bytes": "488",
+      "sha256": "53e5636195d98755690d851d87010da1b7506624ba1581840e7046720143c3f3"
+    },
+    "releases/current/Heady_it3_v_1_0_0.py": {
+      "size_bytes": "427",
+      "sha256": "0e9b0245ac8009c62e4b76de2f119a5604bb32705ec82f4be5bd6a20c59b1502"
+    },
+    "releases/current/apply_heady_golden_master.sh": {
+      "size_bytes": "877",
+      "sha256": "5933cef98f8b82d6cbbf22306c368f13b8f9884d5df31485a133cc5565da75c1"
+    },
+    "releases/current/actuator.py": {
+      "size_bytes": "1367",
+      "sha256": "1aefb5388bfb99139f8ed9fc839c3ede8d229c143cffea886fcc1883b8125e16"
+    },
+    "releases/current/DELIVERY_MANIFEST.md": {
+      "size_bytes": "294",
+      "sha256": "8e4b135184ac01ef7683660e954c337e83d4d43760638bd7d54018ab3d2fc16b"
+    },
+    "releases/current/Heady_it4_v_1_0_0.py": {
+      "size_bytes": "524",
+      "sha256": "f7b868007043f186a04f12bd1b4617d73364b28c64e1669278a5f914772779e1"
+    },
+    "src/heady_reflect.py": {
+      "size_bytes": "433",
+      "sha256": "378d30ffaa7572b666778b273992834614bc52708c8eb6ce7e2da7a4912049cd"
+    },
+    "sample_data/README.md": {
+      "size_bytes": "962",
+      "sha256": "a63d715f48c25c4f0b207afe4d7eb1547b08b92c33b126971e701e9590e1173d"
+    }
+  }
+}
