@@ -1,2 +1,2 @@
 # HeadySystems Inc. 
-Official Heady Ecosystem Repo
+Official "Heady" Ecosystem Repo
