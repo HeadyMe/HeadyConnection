@@ -63,3 +63,16 @@
 /drush
 /drupal.phar
 /drupal
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+*.zip
+*.tar.gz
+dist/
+build/
+*.egg-info/
