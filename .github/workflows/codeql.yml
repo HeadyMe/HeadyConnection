@@ -27,24 +27,21 @@ queries:
 # will only analyze files within these directories.  Adjust these
 # paths to match the locations of your custom modules or services.
 paths:
-  - web/modules/custom
-  - web/themes/custom
-  - ai/mcp-gateway
+  - heady_demo_kit/
+  - HeadySystems/
+  - execute_build.py
 
 # Exclude third‑party and generated code from analysis.  The following
-# patterns ignore Drupal core, contributed modules, vendor packages,
-# Node.js dependencies, compiled assets and minified files.  This
-# ensures CodeQL focuses on custom code and reduces noise in the
-# results【322518979207521†L1480-L1494】.
+# patterns ignore vendor packages, Node.js dependencies, compiled 
+# assets and minified files.  This ensures CodeQL focuses on custom 
+# code and reduces noise in the results.
 paths-ignore:
-  - web/core/**
-  - web/modules/contrib/**
-  - web/profiles/**
-  - web/themes/contrib/**
   - '**/node_modules/**'
   - '**/vendor/**'
   - '**/dist/**'
   - '**/*.min.js'
+  - '**/__pycache__/**'
+  - '**/*.pyc'
 
 # Note:
 # - Languages to analyze are configured in the CodeQL Action workflow

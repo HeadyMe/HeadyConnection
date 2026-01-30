@@ -42,14 +42,12 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 10
 
-  # Update Composer dependencies for the Drupal application in the
-  # `web` directory.  Composer manages PHP packages (including
-  # Drupal core and modules), and weekly updates ensure security
-  # patches are applied in a timely manner.
-  - package-ecosystem: "composer"
-    directory: "/web"
-    schedule:
-      interval: "weekly"
+  # Update Composer dependencies if composer.json files exist.
+  # Commented out as this repository doesn't currently have Composer dependencies.
+  # - package-ecosystem: "composer"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
 
   # Update Python dependencies.  Many repositories include
   # documentation tooling (e.g. `mkdocs` or Sphinx) or scripts that
