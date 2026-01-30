@@ -96,6 +96,10 @@ python3 repo_optimizer.py --optimize --auto
 
 Unified interface for managing commits and pushes to local and remote repositories.
 
+### 4. workflow.py
+
+Convenience script that combines all tools into common workflows.
+
 **Features:**
 - Smart commit message generation
 - Pre-commit validation
@@ -140,6 +144,34 @@ python3 commit_push_manager.py --message "Rewrite history" --push --force
 
 # Check repository status
 python3 commit_push_manager.py --status
+```
+
+**Features:**
+- Pre-built workflows for common tasks
+- Automated multi-step processes
+- Simple command-line interface
+- Combines all three tools intelligently
+
+**Usage:**
+
+```bash
+# Quick commit and analyze
+python3 workflow.py optimize-and-commit
+
+# Daily development sync
+python3 workflow.py daily-sync
+
+# Quick commit with auto-message
+python3 workflow.py quick-commit
+
+# Quick commit and push
+python3 workflow.py quick-commit --push
+
+# Prepare for release
+python3 workflow.py release-prep --version 2.0.0
+
+# Repository cleanup analysis
+python3 workflow.py cleanup
 ```
 
 ## Common Workflows
