@@ -1,0 +1,10 @@
+{
+  "event_id": "pops-evt-001",
+  "source_id": "edge-sensor-01",
+  "timestamp": "2026-04-06T00:00:00Z",
+  "metrics": {
+    "soil_delta": 12.4,
+    "water_index": 0.62
+  },
+  "signature": "DEMO_SIGNATURE_PLACEHOLDER"
+}

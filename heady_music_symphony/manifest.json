@@ -1,0 +1,13 @@
+{
+  "generated_by": "HeadyMusic_HeadySymphony_v_1_0_0.py",
+  "repos": [
+    {
+      "name": "heady-music",
+      "description": "Music runtime services, audio processing, and UX scaffolding."
+    },
+    {
+      "name": "heady-symphony",
+      "description": "HeadySymphony core generation pipeline and API scaffolding."
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; connect-src 'self';" />
+    <title>Heady Genesis Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="logo">Heady Genesis</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#kaizen">HeadyKaizen</a>
+        <a href="#signals">Signals</a>
+      </nav>
+      <button class="six-dot-button" type="button" data-action="refresh" aria-label="Refresh dashboard">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section id="overview" class="hero">
+        <div>
+          <p class="eyebrow">Heady Genesis Dashboard</p>
+          <h1>Kaizen-Driven Operations</h1>
+          <p class="subtitle">
+            A metadata-only dashboard that tracks continuous improvement signals, iteration health,
+            and governance alignment without exposing sensitive data.
+          </p>
+          <div class="hero-actions">
+            <button class="six-dot-button" type="button" data-action="review">Review Kaizen Loop
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </button>
+            <button class="ghost-button" type="button" data-action="export">Export Summary</button>
+          </div>
+        </div>
+        <div class="status-panel">
+          <h2>Genesis Snapshot</h2>
+          <div class="status-grid" id="statusGrid"></div>
+          <div class="status-pill">
+            <strong>Policy Snapshot</strong>
+            <p class="meta" id="snapshotMeta">Awaiting manifest...</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kaizen" class="section">
+        <div class="section-header">
+          <div>
+            <h2>HeadyKaizen Loop</h2>
+            <p>Continuous improvement backlog and action pipeline.</p>
+          </div>
+        </div>
+        <div class="card-grid" id="kaizenGrid"></div>
+      </section>
+
+      <section id="signals" class="section">
+        <div class="section-header">
+          <div>
+            <h2>Signals</h2>
+            <p>Operational signals derived from non-sensitive metadata only.</p>
+          </div>
+        </div>
+        <div class="signal-grid" id="signalGrid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>HeadySystems Inc. | Genesis Dashboard</p>
+      <p class="muted">Metadata-only. No cross-vertical data sharing.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -74,18 +74,29 @@ except ImportError:
     class TaskIntent:  # type: ignore
         RENDER_BATCH = "rb"
 
-CONFIG_FILE = 'projects.json'
+CONFIG_FILE_NAME = 'projects.json'
 
 def mint_coin(d):
     return "hc_v1_" + hashlib.sha256(json.dumps(d, sort_keys=True).encode()).hexdigest()[:16]
 
+def get_config_path():
+    # Check CWD
+    if os.path.exists(CONFIG_FILE_NAME):
+        return CONFIG_FILE_NAME
+    # Check relative to script
+    rel_path = os.path.join(current_dir, '..', 'config', CONFIG_FILE_NAME)
+    if os.path.exists(rel_path):
+        return rel_path
+    return None
+
 def execute_build():
     print("Starting Consolidated Build v12.3...")
-    if not os.path.exists(CONFIG_FILE):
-        print(f"Config {CONFIG_FILE} not found in {os.getcwd()}")
+    config_path = get_config_path()
+    if not config_path:
+        print(f"Config {CONFIG_FILE_NAME} not found in {os.getcwd()} or relative paths")
         return
 
-    with open(CONFIG_FILE) as f:
+    with open(config_path) as f:
         conf = json.load(f)
     ws = conf.get('workspace', './heady-fleet')
     if not os.path.exists(ws):

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; connect-src 'self';" />
+    <title>Living Federation | HeadySystems Patent Series</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="logo">HeadySystems</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#patents">Patents</a>
+        <a href="#demos">Demos</a>
+        <a href="#platform">Modules</a>
+        <a href="#security">Security</a>
+      </nav>
+      <button class="six-dot-button" type="button" id="launchButton" aria-label="Launch orchestration">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </button>
+    </header>
+
+    <main id="main">
+      <noscript>
+        <div class="alert is-visible">This demo requires JavaScript to render the patent dashboard.</div>
+      </noscript>
+      <section class="hero" id="dashboard">
+        <div>
+          <p class="eyebrow">Patents 1–42 — assigned to HeadySystems Inc.</p>
+          <h1>The Living Federation</h1>
+          <p class="subtitle">
+            An interactive operational dashboard for the HeadySystems patent stack—designed to
+            demonstrate governance, orchestration, and safety mechanisms in real time without exposing
+            sensitive data.
+          </p>
+          <div class="hero-actions">
+            <button class="six-dot-button" type="button" data-action="sync">Sync Patent Index
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </button>
+            <button class="ghost-button" type="button" data-action="export">Export Session</button>
+          </div>
+        </div>
+        <div class="status-panel">
+          <h2>Federation Status</h2>
+          <div class="status-grid" id="statusGrid"></div>
+          <div class="status-pill" id="snapshotPanel">
+            <strong>Policy Snapshot</strong>
+            <p class="meta" id="snapshotMeta">Awaiting manifest...</p>
+          </div>
+          <div class="alert" id="offlineBanner" role="status" aria-live="polite">
+            Manifest unavailable. Running in offline fallback mode.
+          </div>
+          <div class="status-log" aria-live="polite" aria-atomic="true">
+            <h3>Activity Log</h3>
+            <div class="log-actions">
+              <button class="ghost-button" type="button" data-action="export">Export Log</button>
+              <button class="ghost-button" type="button" data-action="clear-log">Clear Log</button>
+            </div>
+            <div id="activityLog" class="activity-log"></div>
+            <p class="status-footnote" id="logSummary">0 actions recorded.</p>
+            <p class="status-footnote">Logs are stored locally and never leave this device.</p>
+          </div>
+          <p class="status-footnote">All values are simulated and derived from non-sensitive metadata.</p>
+        </div>
+      </section>
+
+      <section class="section" id="patents">
+        <div class="section-header">
+          <div>
+            <h2>Patent Index</h2>
+            <p>Traceable modules with live readiness and integration hints.</p>
+          </div>
+          <input type="search" id="patentSearch" placeholder="Filter by patent, module, or status" />
+        </div>
+        <div class="alert" id="patentAlert" role="status" aria-live="polite"></div>
+        <div class="card-grid" id="patentGrid"></div>
+      </section>
+
+      <section class="section" id="demos">
+        <div class="section-header">
+          <div>
+            <h2>Interactive Demonstrations</h2>
+            <p>Controlled simulations that mirror each patent’s operational flow.</p>
+          </div>
+        </div>
+        <div class="demo-grid" id="demoGrid"></div>
+      </section>
+
+      <section class="section" id="platform">
+        <div class="section-header">
+          <div>
+            <h2>Restoration Modules</h2>
+            <p>Proof-of-Structure, Regenerative Oracle, and Sovereign Succession in one view.</p>
+          </div>
+        </div>
+        <div class="card-grid" id="moduleGrid"></div>
+      </section>
+
+      <section class="section" id="security">
+        <div class="section-header">
+          <div>
+            <h2>Security & Compliance</h2>
+            <p>Built for zero-trust: local-only bindings, signed policy bundles, and auditable runs.</p>
+          </div>
+        </div>
+        <ul class="security-list" id="securityList"></ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>HeadySystems Inc. | Living Federation demonstrator</p>
+      <p class="muted">No production data. No cross-vertical sharing. Metadata routing only.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

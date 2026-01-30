@@ -1,0 +1,13 @@
+[Unit]
+Description=Heady Cloudflare Tunnel
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudflared tunnel --config /etc/cloudflared/config.yml run
+Restart=always
+RestartSec=5
+User=cloudflared
+
+[Install]
+WantedBy=multi-user.target

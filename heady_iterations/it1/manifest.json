@@ -1,0 +1,7 @@
+{
+  "iteration": 1,
+  "version": "1.0.0",
+  "schema_version": "1.0.1",
+  "stage_name": "foundation",
+  "description": "Baseline iteration scaffold for deterministic build outputs."
+}

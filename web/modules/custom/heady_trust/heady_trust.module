@@ -1,0 +1,14 @@
+<?php
+
+use Drupal\Core\Render\AttachmentsInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function heady_trust_page_attachments(array &$attachments): void {
+  $current_path = \Drupal::service('path.current')->getPath();
+  if (str_starts_with($current_path, '/trust')) {
+    $attachments['#attached']['library'][] = 'heady_trust/hero_canvas';
+  }
+}

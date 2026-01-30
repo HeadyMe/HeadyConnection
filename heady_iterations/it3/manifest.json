@@ -1,0 +1,7 @@
+{
+  "iteration": 3,
+  "version": "1.0.0",
+  "schema_version": "1.0.1",
+  "stage_name": "foundation-docs",
+  "description": "Third iteration scaffold for deterministic build outputs."
+}

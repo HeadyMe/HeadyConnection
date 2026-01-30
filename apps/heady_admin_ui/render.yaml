@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: heady-admin-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: HEADY_ADMIN_TOKEN
+        value: changeme
+
+  - type: web
+    name: heady-admin-ui
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist

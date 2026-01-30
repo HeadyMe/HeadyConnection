@@ -1,0 +1,7 @@
+{
+  "governance_repo": "https://github.com/heady-connection/governance",
+  "version": "0.0.0",
+  "install_method": "release-asset",
+  "release_asset": "policy-pack.tar.gz",
+  "notes": "Update version and asset references when integrating with the canonical governance repo."
+}

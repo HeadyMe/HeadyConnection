@@ -1,0 +1,7 @@
+{
+  "iteration": 2,
+  "version": "1.0.0",
+  "schema_version": "1.0.1",
+  "stage_name": "foundation-ops",
+  "description": "Second iteration scaffold for deterministic build outputs."
+}
