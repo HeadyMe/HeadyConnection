@@ -76,3 +76,6 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
+# Generated reports
+optimization_report.json
