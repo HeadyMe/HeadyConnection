@@ -11,6 +11,12 @@ sys.path.append(current_dir)
 # Import modules with Mypy safeguards
 try:
     from heady_archive import HeadyArchive
+except ImportError:
+    class HeadyArchive:  # type: ignore
+        def preserve(self, m, context_tags=None, timestamp=None):
+            return m
+
+try:
     from heady_verticals import VerticalTemplate
     from heady_foundation import DataVault, TrustDomain, LegacyBridge
     from heady_security import AISafetyGateway, RAAFabric
@@ -21,10 +27,6 @@ try:
     from heady_reflect import HeadyReflect
 except ImportError:
     # Fallback mocks for standalone execution
-    class HeadyArchive:  # type: ignore
-        def preserve(self, m, context_tags=None):
-            return m
-
     class VerticalTemplate:  # type: ignore
         @staticmethod
         def get_config(v):
@@ -92,6 +94,7 @@ def execute_build():
         os.makedirs(ws)
 
     archivist = HeadyArchive()
+    build_ts = datetime.datetime.now().isoformat()
 
     for p in conf.get('projects', []):
         slug = p['slug']
@@ -115,7 +118,7 @@ def execute_build():
             m["hardware_control"] = "Local-Only"
 
         m["heady_coin_pow"] = mint_coin(m)
-        m = archivist.preserve(m, context_tags=[slug, "v12.3"])
+        m = archivist.preserve(m, context_tags=[slug, "v12.3"], timestamp=build_ts)
 
         with open(os.path.join(p_dir, "heady-manifest.json"), "w") as f:
             json.dump(m, f, indent=2)

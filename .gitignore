@@ -63,3 +63,7 @@
 /drush
 /drupal.phar
 /drupal
+
+# Python
+__pycache__/
+*.pyc
