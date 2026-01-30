@@ -138,7 +138,11 @@ class CommitPushManager:
             return f"Update {len(staged)} files"
     
     def validate_commit_message(self, message: str) -> Tuple[bool, str]:
-        """Validate commit message format."""
+        """Validate commit message format.
+        
+        Note: First line is limited to 72 characters following git conventions.
+        This is a hard limit enforced by this tool.
+        """
         if not message or not message.strip():
             return (False, "Commit message cannot be empty")
         
@@ -147,7 +151,7 @@ class CommitPushManager:
         
         first_line = message.split('\n')[0]
         if len(first_line) > 72:
-            return (False, "First line should be 72 characters or less")
+            return (False, "First line should be 72 characters or less (git convention)")
         
         return (True, "")
     

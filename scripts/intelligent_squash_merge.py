@@ -154,7 +154,7 @@ class IntelligentSquashMerge:
                     'git', 'merge-base', '--is-ancestor',
                     commits[i+1].sha, commits[i].sha
                 ])
-            except:
+            except subprocess.CalledProcessError:
                 print("⚠️  Commits do not form a linear history. Squashing may lose data.")
                 print("Please ensure commits are in a contiguous sequence.")
                 return
@@ -203,14 +203,18 @@ class IntelligentSquashMerge:
             if group_name not in groups:
                 print(f"Invalid group name. Available: {', '.join(groups.keys())}")
                 return
-            if len(groups[group_name]) > 1:
-                message = self.create_squash_commit_message(groups[group_name], group_name)
+            
+            group_commits = groups[group_name]
+            if len(group_commits) == 0:
+                print(f"No commits in {group_name} group")
+            elif len(group_commits) == 1:
+                print(f"Only 1 commit in {group_name} group. Nothing to squash.")
+            else:
+                message = self.create_squash_commit_message(group_commits, group_name)
                 print(f"\nProposed commit message:\n{message}")
                 confirm = input("\nProceed? (y/n): ")
                 if confirm.lower() == 'y':
-                    self.squash_commits(groups[group_name], message)
-            else:
-                print("Invalid group or not enough commits in group")
+                    self.squash_commits(group_commits, message)
         
         elif choice == "2":
             start = int(input("Start index: ")) - 1

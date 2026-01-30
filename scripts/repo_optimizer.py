@@ -96,8 +96,9 @@ class RepoOptimizer:
                     try:
                         file_hash = self.calculate_file_hash(file_path)
                         hash_map[file_hash].append(file_path)
-                    except Exception:
+                    except (OSError, IOError, PermissionError) as e:
                         # Skip files that can't be read
+                        print(f"Warning: Could not read {file_path}: {e}")
                         continue
         
         # Find duplicates
@@ -208,7 +209,7 @@ class RepoOptimizer:
                             'days_old': days_old,
                             'author': author
                         })
-            except Exception as e:
+            except (ValueError, IndexError) as e:
                 # Skip branches with unparseable dates
                 continue
         

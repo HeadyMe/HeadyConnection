@@ -25,8 +25,12 @@ def run_script(script_name: str, args: list) -> int:
     print(f"Running: {' '.join(cmd)}")
     print(f"{'='*60}\n")
     
-    result = subprocess.run(cmd, check=False)
-    return result.returncode
+    try:
+        result = subprocess.run(cmd, check=False)
+        return result.returncode
+    except Exception as e:
+        print(f"Error running script: {e}")
+        return 1
 
 
 def workflow_optimize_and_commit():
