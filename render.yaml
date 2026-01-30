@@ -1,0 +1,27 @@
+services:
+  # HeadyConnection Demo Service
+  - type: web
+    name: heady-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt || echo "No requirements.txt found"
+    startCommand: python3 HeadySystems/run_demo.py
+    envVars:
+      - key: HEADY_WORKSPACE
+        value: ./HeadySystems/heady-fleet
+      - key: HEADY_CONFIG
+        value: ./HeadySystems/projects.json
+      - key: PYTHON_VERSION
+        value: 3.11
+
+  # Static documentation site (optional)
+  - type: web
+    name: heady-docs
+    runtime: static
+    plan: free
+    buildCommand: echo "Documentation site - static files from HeadyDirective"
+    staticPublishPath: ./HeadyDirective
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /README.md
