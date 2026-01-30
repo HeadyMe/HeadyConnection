@@ -1,22 +1,16 @@
 # Dependabot configuration file
 #
-# This file instructs GitHub’s Dependabot to monitor multiple
+# This file instructs GitHub's Dependabot to monitor multiple
 # package ecosystems for outdated dependencies and automatically
-# raise pull requests when updates are available.  The sample
-# configuration below is based on GitHub’s documentation, which
-# shows how to configure npm, Docker, and GitHub Actions with
-# minimal settings【388271434313053†L594-L642】.  Additional entries
-# have been added to cover Composer (for PHP/Drupal dependencies)
-# and pip (for Python tooling) to reflect the typical structure of
-# this project.
+# raise pull requests when updates are available.
 
 version: 2
 
 updates:
-  # Keep GitHub Actions workflows up‑to‑date.  Dependabot scans
+  # Keep GitHub Actions workflows up-to-date.  Dependabot scans
   # action versions declared in files under `.github/workflows` and
   # opens a pull request to bump them.  A weekly schedule is
-  # sufficient for most projects【388271434313053†L615-L652】.
+  # sufficient for most projects.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -24,23 +18,19 @@ updates:
 
   # Update Docker base images defined in `Dockerfile` files.  Weekly
   # checks help keep container images secure without overwhelming
-  # maintainers【388271434313053†L607-L642】.
+  # maintainers.
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "weekly"
 
-  # Update Node.js dependencies for the MCP Gateway service.  The
-  # `ai/mcp-gateway` directory contains a package.json and lock file
-  # defining this microservice’s dependencies.  A weekly cadence
-  # balances getting improvements promptly with limiting pull
-  # request churn.  You can adjust the `open-pull-requests-limit` to
-  # control how many simultaneous PRs Dependabot opens.
-  - package-ecosystem: "npm"
-    directory: "/ai/mcp-gateway"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
+  # Update Node.js dependencies if package.json files exist.
+  # Commented out as this repository doesn't currently have npm dependencies.
+  # - package-ecosystem: "npm"
+  #   directory: "/"
+  #   schedule:
+  #     interval: "weekly"
+  #   open-pull-requests-limit: 10
 
   # Update Composer dependencies if composer.json files exist.
   # Commented out as this repository doesn't currently have Composer dependencies.
@@ -67,4 +57,4 @@ updates:
 #   "gomod" for Go) by adding more entries under `updates`.
 # - To group multiple dependencies into fewer pull requests, you can
 #   define update groups.  See the GitHub Docs for examples of
-#   grouping rules and other advanced options【388271434313053†L584-L642】.
+#   grouping rules and other advanced options.

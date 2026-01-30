@@ -1,5 +1,6 @@
-# HeadySystems Inc. 
-Official "Heady" Ecosystem Repo
+# HeadyConnection
+
+Official "Heady" Ecosystem Repository
 
 ## Overview
 
