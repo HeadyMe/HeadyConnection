@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "heady-systems": {
+      "command": "python3",
+      "args": ["-m", "HeadySystems.run_demo"],
+      "env": {
+        "HEADY_WORKSPACE": "./HeadySystems/heady-fleet",
+        "HEADY_CONFIG": "./HeadySystems/projects.json"
+      }
+    }
+  },
+  "workspace": {
+    "structure": {
+      "HeadySystems": {
+        "description": "Infrastructure, backend, deployment configs",
+        "contains": ["heady-fleet", "heady_project", "execute_build.py", "run_demo.py", "projects.json"]
+      },
+      "HeadyDirective": {
+        "description": "Documentation, governance, policies",
+        "contains": ["README.md", "LICENSE", "patches.md", "DELIVERY_MANIFEST.md", ".github"]
+      },
+      "HeadyConnection": {
+        "description": "Community portal, frontend, events (future)",
+        "status": "planned"
+      }
+    }
+  }
+}
