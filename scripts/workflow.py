@@ -25,7 +25,7 @@ def run_script(script_name: str, args: list) -> int:
     print(f"Running: {' '.join(cmd)}")
     print(f"{'='*60}\n")
     
-    result = subprocess.run(cmd)
+    result = subprocess.run(cmd, check=False)
     return result.returncode
 
 

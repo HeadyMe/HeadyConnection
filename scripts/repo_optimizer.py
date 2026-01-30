@@ -77,7 +77,7 @@ class RepoOptimizer:
             return sha256.hexdigest()
         except Exception as e:
             print(f"Error hashing {file_path}: {e}")
-            return ""
+            raise
     
     def find_duplicates(self) -> Dict[str, List[Path]]:
         """Find duplicate files in the repository."""
@@ -93,9 +93,12 @@ class RepoOptimizer:
             for filename in files:
                 file_path = Path(root) / filename
                 if file_path.stat().st_size > 0:  # Skip empty files
-                    file_hash = self.calculate_file_hash(file_path)
-                    if file_hash:
+                    try:
+                        file_hash = self.calculate_file_hash(file_path)
                         hash_map[file_hash].append(file_path)
+                    except Exception:
+                        # Skip files that can't be read
+                        continue
         
         # Find duplicates
         duplicates = {h: paths for h, paths in hash_map.items() if len(paths) > 1}
@@ -190,19 +193,23 @@ class RepoOptimizer:
             author = parts[2] if len(parts) > 2 else "Unknown"
             
             try:
-                # Parse the date
-                last_commit = datetime.fromisoformat(date_str.replace(' ', 'T').split('+')[0].split('-')[0].strip())
-                
-                if last_commit < cutoff_date:
-                    days_old = (datetime.now() - last_commit).days
-                    stale_branches.append({
-                        'name': branch_name,
-                        'last_commit': date_str,
-                        'days_old': days_old,
-                        'author': author
-                    })
+                # Parse the date - handle ISO format with timezone
+                # Example: 2026-01-30 19:05:30 -0700
+                date_parts = date_str.split()
+                if len(date_parts) >= 2:
+                    date_time_str = f"{date_parts[0]} {date_parts[1]}"
+                    last_commit = datetime.strptime(date_time_str, '%Y-%m-%d %H:%M:%S')
+                    
+                    if last_commit < cutoff_date:
+                        days_old = (datetime.now() - last_commit).days
+                        stale_branches.append({
+                            'name': branch_name,
+                            'last_commit': date_str,
+                            'days_old': days_old,
+                            'author': author
+                        })
             except Exception as e:
-                print(f"Error parsing date for {branch_name}: {e}")
+                # Skip branches with unparseable dates
                 continue
         
         if stale_branches:
@@ -267,15 +274,23 @@ class RepoOptimizer:
         missing = []
         for pattern, description in common_patterns.items():
             if pattern not in gitignore_content:
-                # Check if these files/dirs actually exist
+                # Check if these files/dirs actually exist using pathlib
                 if pattern.startswith('*.'):
                     ext = pattern[1:]
-                    result = self.run_command(['find', '.', '-name', f'*{ext}', '-type', 'f'])
-                    if result:
+                    found = False
+                    for path in self.repo_path.rglob(f'*{ext}'):
+                        if path.is_file():
+                            found = True
+                            break
+                    if found:
                         missing.append((pattern, description))
                 else:
-                    result = self.run_command(['find', '.', '-name', pattern])
-                    if result:
+                    # Check for directory or file by name
+                    found = False
+                    for path in self.repo_path.rglob(pattern):
+                        found = True
+                        break
+                    if found:
                         missing.append((pattern, description))
         
         if missing:

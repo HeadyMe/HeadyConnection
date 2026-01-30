@@ -146,6 +146,19 @@ class IntelligentSquashMerge:
             print("Need at least 2 commits to squash")
             return
         
+        # Validate commits form a contiguous sequence
+        for i in range(len(commits) - 1):
+            try:
+                # Check if commits[i+1] is an ancestor of commits[i]
+                self.run_git_command([
+                    'git', 'merge-base', '--is-ancestor',
+                    commits[i+1].sha, commits[i].sha
+                ])
+            except:
+                print("⚠️  Commits do not form a linear history. Squashing may lose data.")
+                print("Please ensure commits are in a contiguous sequence.")
+                return
+        
         # Reset to the commit before the first one we want to squash
         oldest_commit = commits[-1].sha
         parent_commit = self.run_git_command(['git', 'rev-parse', f'{oldest_commit}^'])
@@ -186,8 +199,11 @@ class IntelligentSquashMerge:
         choice = input("\nSelect option: ")
         
         if choice == "1":
-            group_name = input("Enter group name to squash: ")
-            if group_name in groups and len(groups[group_name]) > 1:
+            group_name = input("Enter group name to squash: ").strip().lower()
+            if group_name not in groups:
+                print(f"Invalid group name. Available: {', '.join(groups.keys())}")
+                return
+            if len(groups[group_name]) > 1:
                 message = self.create_squash_commit_message(groups[group_name], group_name)
                 print(f"\nProposed commit message:\n{message}")
                 confirm = input("\nProceed? (y/n): ")
@@ -217,7 +233,7 @@ class IntelligentSquashMerge:
             if len(group_commits) > 1:
                 message = self.create_squash_commit_message(group_commits, group_name)
                 print(f"\nSquashing {len(group_commits)} {group_name} commits")
-                print(f"Message: {message.split(chr(10))[0]}")
+                print(f"Message: {message.split('\n')[0]}")
                 self.squash_commits(group_commits, message)
     
     def merge_with_squash(self, source_branch: str, target_branch: str):

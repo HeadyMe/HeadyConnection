@@ -23,6 +23,7 @@ import argparse
 import re
 import subprocess
 import sys
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Optional, Tuple
@@ -55,8 +56,7 @@ class CommitPushManager:
             )
             return (result.returncode, result.stdout, result.stderr)
         except subprocess.CalledProcessError as e:
-            return (e.returncode, e.stdout if hasattr(e, 'stdout') else "", 
-                   e.stderr if hasattr(e, 'stderr') else str(e))
+            return (e.returncode, e.stdout, e.stderr)
     
     def get_current_branch(self) -> str:
         """Get the name of the current branch."""
@@ -145,7 +145,8 @@ class CommitPushManager:
         if len(message) < 3:
             return (False, "Commit message too short (minimum 3 characters)")
         
-        if len(message) > 72 and '\n' not in message[:73]:
+        first_line = message.split('\n')[0]
+        if len(first_line) > 72:
             return (False, "First line should be 72 characters or less")
         
         return (True, "")
@@ -301,9 +302,6 @@ class CommitPushManager:
             for remote in remotes:
                 url = self.get_remote_url(remote)
                 print(f"  {remote}: {url}")
-
-
-from collections import defaultdict
 
 
 def main():
