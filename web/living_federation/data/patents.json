@@ -1,0 +1,83 @@
+[
+  {
+    "number": "13",
+    "title": "Deterministic Repo Builder",
+    "status": "Operational",
+    "summary": "Deterministic build factory with drift guardrails and reproducible outputs.",
+    "integration": "DocsGuardian + build scripts",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["determinism", "build", "ops"]
+  },
+  {
+    "number": "35",
+    "title": "HeadyMake (Proof-of-Structure)",
+    "status": "Draft",
+    "summary": "Layer-by-layer additive manufacturing verification with cryptographic attestation.",
+    "integration": "HeadyMake scanner + ledger API",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["manufacturing", "attestation", "safety"]
+  },
+  {
+    "number": "36",
+    "title": "HeadyField (Regenerative Oracle)",
+    "status": "Draft",
+    "summary": "IoT soil telemetry feeds smart-contract rewards for regenerative outcomes.",
+    "integration": "Sensor mesh + oracle payout engine",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["agtech", "oracle", "incentives"]
+  },
+  {
+    "number": "37",
+    "title": "HeadyLegacy (Sovereign Succession)",
+    "status": "Draft",
+    "summary": "Biometric dead-man's switch with secret sharing for sovereign key transfer.",
+    "integration": "Identity platform + succession protocol",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["identity", "succession", "security"]
+  },
+  {
+    "number": "14",
+    "title": "RAA Execution Fabric",
+    "status": "In Progress",
+    "summary": "Risk, Authorization, Attestation gating with rollback-ready execution.",
+    "integration": "MCP Gateway + Conductor",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["security", "governance", "runtime"]
+  },
+  {
+    "number": "16",
+    "title": "Tunnel-Only Origin",
+    "status": "Operational",
+    "summary": "Zero-exposure origin with tunnel-only ingress and localhost binding.",
+    "integration": "Ops templates + Cloudflare",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["network", "zero-trust", "ops"]
+  },
+  {
+    "number": "29",
+    "title": "HeadyReflect",
+    "status": "Operational",
+    "summary": "Socratic validation loop to gate high-impact tool usage.",
+    "integration": "MCP Gateway enforcement",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["ai", "safety", "workflow"]
+  },
+  {
+    "number": "30",
+    "title": "HeadyConductor",
+    "status": "Operational",
+    "summary": "Dynamic orchestration of spokes with tokenized registration.",
+    "integration": "Conductor service",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["orchestration", "registry", "routing"]
+  },
+  {
+    "number": "37",
+    "title": "HeadyNature",
+    "status": "Draft",
+    "summary": "Biomimetic translation node for pattern-driven infrastructure tuning.",
+    "integration": "Intel Edge + policy signals",
+    "assignment": "Assigned to HeadySystems Inc.",
+    "tags": ["biomimicry", "optimization"]
+  }
+]

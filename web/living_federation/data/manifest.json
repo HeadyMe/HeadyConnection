@@ -1,0 +1,59 @@
+{
+  "snapshot": {
+    "version": "policy-pack-1.3.2",
+    "generated_at": "2026-01-22T00:00:00Z",
+    "source": "docs-guardian",
+    "schema_version": "1.0.0",
+    "manifest_id": "lf-demo-0001"
+  },
+  "patents": [
+    {
+      "number": "13",
+      "title": "Deterministic Repo Builder",
+      "status": "Operational",
+      "summary": "Deterministic build factory with drift guardrails and reproducible outputs.",
+      "integration": "DocsGuardian + build scripts",
+      "tags": ["determinism", "build", "ops"]
+    },
+    {
+      "number": "14",
+      "title": "RAA Execution Fabric",
+      "status": "In Progress",
+      "summary": "Risk, Authorization, Attestation gating with rollback-ready execution.",
+      "integration": "MCP Gateway + Conductor",
+      "tags": ["security", "governance", "runtime"]
+    },
+    {
+      "number": "16",
+      "title": "Tunnel-Only Origin",
+      "status": "Operational",
+      "summary": "Zero-exposure origin with tunnel-only ingress and localhost binding.",
+      "integration": "Ops templates + Cloudflare",
+      "tags": ["network", "zero-trust", "ops"]
+    },
+    {
+      "number": "29",
+      "title": "HeadyReflect",
+      "status": "Operational",
+      "summary": "Socratic validation loop to gate high-impact tool usage.",
+      "integration": "MCP Gateway enforcement",
+      "tags": ["ai", "safety", "workflow"]
+    },
+    {
+      "number": "30",
+      "title": "HeadyConductor",
+      "status": "Operational",
+      "summary": "Dynamic orchestration of spokes with tokenized registration.",
+      "integration": "Conductor service",
+      "tags": ["orchestration", "registry", "routing"]
+    },
+    {
+      "number": "37",
+      "title": "HeadyNature",
+      "status": "Draft",
+      "summary": "Biomimetic translation node for pattern-driven infrastructure tuning.",
+      "integration": "Intel Edge + policy signals",
+      "tags": ["biomimicry", "optimization"]
+    }
+  ]
+}

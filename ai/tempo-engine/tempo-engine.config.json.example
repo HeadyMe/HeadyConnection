@@ -1,0 +1,12 @@
+{
+  "version": "0.1",
+  "rules": [
+    {
+      "name": "public-docs-prefetch",
+      "signal": "docs_view",
+      "allowlisted": true,
+      "targets": ["/docs/index.html"],
+      "ttl_seconds": 120
+    }
+  ]
+}

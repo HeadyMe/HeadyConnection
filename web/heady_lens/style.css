@@ -1,0 +1,148 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0b1120;
+  color: #e2e8f0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.headylens-frame {
+  position: fixed;
+  inset: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+  pointer-events: none;
+}
+
+.headylens-header {
+  position: fixed;
+  top: 28px;
+  left: 40px;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  z-index: 2;
+}
+
+.headylens-header .brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.headylens-header .tagline {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.headylens-main {
+  position: relative;
+  height: 100vh;
+}
+
+#headylens-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+}
+
+.overlay {
+  position: absolute;
+  top: 120px;
+  right: 40px;
+  width: min(360px, 90vw);
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 18px 20px;
+  backdrop-filter: blur(12px);
+  transition: opacity 0.2s ease;
+}
+
+.overlay[data-visible="false"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.overlay .label {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  color: #94a3b8;
+}
+
+.controls {
+  position: absolute;
+  bottom: 90px;
+  left: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 12px;
+  z-index: 2;
+}
+
+.controls button {
+  background: rgba(30, 41, 59, 0.9);
+  color: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.controls button:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.instructions {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  font-size: 0.85rem;
+}
+
+.instructions h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.9rem;
+}
+
+.instructions ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 900px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  .overlay {
+    right: 20px;
+    left: 20px;
+    top: auto;
+    bottom: 200px;
+  }
+  .instructions {
+    right: 20px;
+    left: 20px;
+  }
+}

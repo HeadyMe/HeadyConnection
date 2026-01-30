@@ -1,0 +1,7 @@
+hero_canvas:
+  version: 1.x
+  js:
+    js/hero-canvas.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

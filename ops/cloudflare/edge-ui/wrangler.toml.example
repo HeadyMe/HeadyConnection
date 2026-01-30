@@ -1,0 +1,6 @@
+name = "heady-edge-ui"
+main = "worker.js"
+compatibility_date = "2024-12-01"
+
+[vars]
+STATUS_FEED_URL = "https://status.example.com/system.json"

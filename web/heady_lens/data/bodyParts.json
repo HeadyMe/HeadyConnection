@@ -1,0 +1,56 @@
+{
+  "heart": {
+    "name": "Heart",
+    "description": "Core vitality hub for the HeadyLens demo body.",
+    "logic": "Receipts and authorization pulses route through the heart node before any critical action.",
+    "ip": "RAA Execution Fabric (Patent #14 — assigned to HeadySystems Inc.) and PQC Evidence Chain (Patent #15 — assigned to HeadySystems Inc.)."
+  },
+  "brain": {
+    "name": "Brain",
+    "description": "Decision center that interprets signals and governs risk.",
+    "logic": "Socratic validation and deterministic risk scoring gate high-impact tools.",
+    "ip": "HeadyReflect (Patent #29 — assigned to HeadySystems Inc.) and HeadyGuard safety limits (Patent #21 — assigned to HeadySystems Inc.)."
+  },
+  "left_arm": {
+    "name": "Left Arm",
+    "description": "Action interface for controlled execution.",
+    "logic": "Physical key custody ensures actions are initiated only by the holder.",
+    "ip": "PTACA key custody (Patent #1 — assigned to HeadySystems Inc.)."
+  },
+  "right_arm": {
+    "name": "Right Arm",
+    "description": "Secondary execution channel for safe operations.",
+    "logic": "Execution routes honor policy supply chain controls before action.",
+    "ip": "Policy Supply Chain (Patent #17 — assigned to HeadySystems Inc.)."
+  },
+  "lungs": {
+    "name": "Lungs",
+    "description": "Breathing layer that keeps the system resilient under load.",
+    "logic": "Tunnel-only origin policies ensure clean ingress and safe flow control.",
+    "ip": "Tunnel-Only Origin (Patent #16 — assigned to HeadySystems Inc.)."
+  },
+  "eyes": {
+    "name": "Eyes",
+    "description": "Observation layer that reads system state without exposing raw telemetry.",
+    "logic": "Data is processed ephemerally and summarized before exposure.",
+    "ip": "Ephemeral memory processing (Patent #19 — assigned to HeadySystems Inc.)."
+  },
+  "heady_make": {
+    "name": "HeadyMake",
+    "description": "Proof-of-Structure layer for additive manufacturing integrity.",
+    "logic": "Each printed layer is scanned, hashed, and signed to attest internal structure fidelity.",
+    "ip": "Proof-of-Structure (Patent #35 — assigned to HeadySystems Inc.)."
+  },
+  "heady_field": {
+    "name": "HeadyField",
+    "description": "Regenerative Oracle that ties soil telemetry to reward flows.",
+    "logic": "Sensor readings are validated, scored, and routed to smart-contract payouts.",
+    "ip": "Regenerative Oracle (Patent #36 — assigned to HeadySystems Inc.)."
+  },
+  "heady_legacy": {
+    "name": "HeadyLegacy",
+    "description": "Sovereign Succession protocol for secure key inheritance.",
+    "logic": "Biometric inactivity triggers shard reconstruction and controlled transfer.",
+    "ip": "Sovereign Succession (Patent #37 — assigned to HeadySystems Inc.)."
+  }
+}

@@ -1,0 +1,21 @@
+services:
+  heady-admin-api:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: ["npm", "run", "start"]
+    ports:
+      - "9000:9000"
+    environment:
+      - PORT=9000
+      - HEADY_ADMIN_TOKEN=changeme
+
+  heady-admin-ui:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    ports:
+      - "5175:5175"

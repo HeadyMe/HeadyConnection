@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heady Foundation | Sovereign AI Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --heady-green: #4ade80;
+            --heady-blue: #3b82f6;
+            --heady-gold: #fbbf24;
+            --heady-amber: #d97706;
+            --heady-ink: #050505;
+            --heady-muted: #e0e0e0;
+        }
+        body {
+            background-color: var(--heady-ink);
+            color: var(--heady-muted);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, var(--heady-green), var(--heady-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-text {
+            background: linear-gradient(90deg, var(--heady-gold), var(--heady-amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .patent-card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        .patent-card:hover {
+            border-color: #4ade80;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(74, 222, 128, 0.2);
+        }
+        .hero-bg {
+            background-image: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+        .grid-line {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 12px;
+            background: #111;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            z-index: 999;
+        }
+        .skip-link:focus {
+            left: 16px;
+        }
+        .six-dot-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        .six-dot-button .dot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 6px);
+            gap: 4px;
+        }
+        .six-dot-button .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.35);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .six-dot-button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(74, 222, 128, 0.7);
+            background: rgba(74, 222, 128, 0.1);
+        }
+        .six-dot-button:hover .dot {
+            background: rgba(74, 222, 128, 0.85);
+            transform: scale(1.15);
+        }
+        .six-dot-button:focus-visible {
+            outline: 2px solid var(--heady-green);
+            outline-offset: 3px;
+        }
+        .six-dot-button--light {
+            background: #fff;
+            color: #0b0b0b;
+            border-color: transparent;
+        }
+        .six-dot-button--light .dot {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .six-dot-button--light:hover {
+            border-color: #111;
+            background: #f2f2f2;
+        }
+        .six-dot-button--ghost {
+            background: transparent;
+            border-color: rgba(74, 222, 128, 0.8);
+            color: var(--heady-green);
+        }
+        .six-dot-button--ghost .dot {
+            background: rgba(74, 222, 128, 0.55);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <a class="skip-link mono" href="#main-content">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10" aria-label="Primary">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="mono font-bold text-lg tracking-tighter">HEADY<span class="text-gray-500">SYSTEMS</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm mono text-gray-400">
+                <a href="#vision" class="hover:text-white transition">THE VISION</a>
+                <a href="#shift" class="hover:text-white transition">THE SHIFT</a>
+                <a href="#patents" class="hover:text-white transition">THE PATENTS</a>
+                <a href="#mission" class="hover:text-white transition">MISSION</a>
+            </div>
+            <a href="#" class="six-dot-button six-dot-button--ghost mono">
+                <span>Access Vault</span>
+                <span class="dot-grid" aria-hidden="true">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </span>
+            </a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 hero-bg overflow-hidden">
+        <!-- Abstract Grid Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="grid-line w-full h-px top-1/4"></div>
+            <div class="grid-line w-full h-px top-2/4"></div>
+            <div class="grid-line w-full h-px top-3/4"></div>
+            <div class="grid-line h-full w-px left-1/4"></div>
+            <div class="grid-line h-full w-px left-2/4"></div>
+            <div class="grid-line h-full w-px left-3/4"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-block mb-4 px-3 py-1 border border-gray-700 rounded-full bg-gray-900/50 backdrop-blur">
+                <span class="mono text-xs text-gray-400">STATUS: <span class="text-green-400">36 PATENTS PENDING</span></span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+                The Internet Was Built On A <br>
+                <span class="gradient-text">Mistake.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                The current foundation relies on greed, centralization, and surveillance.
+                We are building the correction.
+            </p>
+            <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center">
+                <button class="six-dot-button six-dot-button--light mono">
+                    <span>Read the Constitution</span>
+                    <span class="dot-grid" aria-hidden="true">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </span>
+                </button>
+                <button class="six-dot-button mono">
+                    <span>View the Patent Stack</span>
+                    <span class="dot-grid" aria-hidden="true">
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Problem / The Vision -->
+    <section id="vision" class="py-24 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="border-l-2 border-green-500 pl-6 mb-12">
+                <h2 class="text-3xl font-bold mb-4">The Architect's Vision</h2>
+                <p class="text-lg text-gray-300 italic">
+                    "To me, the present state of the world has been built on a foundation of extraction.
+                    Power is centralized. Wealth is hoarded. Value is derived from spying on people.
+                    My vision is to change that foundation entirely."
+                </p>
+                <div class="mt-4 mono text-sm text-green-500">— Eric Haywood, Founder</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Shift (Comparison) -->
+    <section id="shift" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-16 text-center">The Great Correction</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Column 1 -->
+                <div class="patent-card p-8 rounded-xl">
+                    <div class="mono text-xs text-red-400 mb-2">THE OLD FOUNDATION</div>
+                    <h3 class="text-2xl font-bold mb-4">Greed & Extraction</h3>
+                    <p class="text-gray-400 mb-6 text-sm">Platforms take 30-50% of your income. You create the value, they keep the wealth.</p>
+
+                    <div class="h-px bg-gray-700 w-full my-6"></div>
+
+                    <div class="mono text-xs text-green-400 mb-2">THE HEADY CORRECTION</div>
+                    <h3 class="text-xl font-bold mb-2">Shared Prosperity</h3>
+                    <p class="text-gray-300 text-sm mb-4">We coded fairness into the system. The creator keeps 95%. The platform takes 5%.</p>
+                    <div class="inline-block bg-green-900/30 border border-green-500/30 px-2 py-1 rounded text-xs mono text-green-400">
+                        PATENT #33: HeadyMint
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="patent-card p-8 rounded-xl">
+                    <div class="mono text-xs text-red-400 mb-2">THE OLD FOUNDATION</div>
+                    <h3 class="text-2xl font-bold mb-4">Centralization</h3>
+                    <p class="text-gray-400 mb-6 text-sm">You rent your identity from Google. They can delete your digital life with one click.</p>
+
+                    <div class="h-px bg-gray-700 w-full my-6"></div>
+
+                    <div class="mono text-xs text-green-400 mb-2">THE HEADY CORRECTION</div>
+                    <h3 class="text-xl font-bold mb-2">Sovereignty</h3>
+                    <p class="text-gray-300 text-sm mb-4">You hold the physical key. You own the root. No one can evict you from your own life.</p>
+                    <div class="inline-block bg-green-900/30 border border-green-500/30 px-2 py-1 rounded text-xs mono text-green-400">
+                        PATENT #1: PTACA
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="patent-card p-8 rounded-xl">
+                    <div class="mono text-xs text-red-400 mb-2">THE OLD FOUNDATION</div>
+                    <h3 class="text-2xl font-bold mb-4">Surveillance</h3>
+                    <p class="text-gray-400 mb-6 text-sm">If the product is free, you are the product. Your secrets are sold to the highest bidder.</p>
+
+                    <div class="h-px bg-gray-700 w-full my-6"></div>
+
+                    <div class="mono text-xs text-green-400 mb-2">THE HEADY CORRECTION</div>
+                    <h3 class="text-xl font-bold mb-2">Privacy & Physics</h3>
+                    <p class="text-gray-300 text-sm mb-4">Data is processed in RAM and destroyed instantly. We rely on math, not promises.</p>
+                    <div class="inline-block bg-green-900/30 border border-green-500/30 px-2 py-1 rounded text-xs mono text-green-400">
+                        PATENT #19: HeadyBio
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Core Pillar -->
+    <section class="py-24 bg-zinc-950 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="patent-card p-10 rounded-2xl">
+                <div class="mono text-xs text-green-400 mb-3">CORE PHILOSOPHICAL PILLAR</div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Replacing the Foundation of Extraction with a Foundation of Empowerment.
+                </h2>
+                <p class="text-gray-300 leading-relaxed mb-6">
+                    The current digital world (Web2) is built on greed, centralization, and surveillance. HeadyConnection
+                    and HeadySystems flip this stack upside down by encoding shared prosperity, sovereign identity, and
+                    privacy-by-design into the architecture itself.
+                </p>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    This project is fundamentally built on verifiable trust, deterministic governance, and human-first
+                    systems design that treats privacy, safety, and equity as core infrastructure, not add-ons.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 text-sm">
+                    <div class="space-y-3">
+                        <div class="mono text-green-400">Replacing Greed with Shared Prosperity</div>
+                        <p class="text-gray-400">
+                            Patent 33 (HeadyMint) and Patent 18 (HeadySymphony) enforce a 95/5 creator split so the
+                            wealth flows to the person doing the work, not the landlord.
+                        </p>
+                        <p class="text-gray-500">
+                            The mechanism: fairness is coded into the smart contract logic itself, not a policy toggle.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="mono text-green-400">Replacing Centralization with Sovereignty</div>
+                        <p class="text-gray-400">
+                            Patent 3 (Sovereign Identity Root) and PTACA give users physical keys to their digital soul,
+                            while Patent 16 (Tunnel-Only Origin) removes the single kill switch.
+                        </p>
+                        <p class="text-gray-500">
+                            The mechanism: decentralized infrastructure ensures the user stays the root authority.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="mono text-green-400">Replacing Surveillance with Privacy</div>
+                        <p class="text-gray-400">
+                            Patent 19 (HeadyBio) and Patent 25 (HeadyTube Glaze) keep data in RAM-only pipelines and resist
+                            scraping by charging fairly for tools rather than monetizing people.
+                        </p>
+                        <p class="text-gray-500">
+                            The mechanism: privacy pipelines process data, then destroy it instantly.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 border-t border-white/10 pt-6 text-gray-300">
+                    <p class="text-lg italic">
+                        “The internet was built on a mistake. We traded our freedom for convenience. HeadyConnection is
+                        the correction. We are building a new foundation where Technology protects Humanity, instead of
+                        harvesting it.”
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">The Price List (Business Model)</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">B2B Licensing</div>
+                    <p class="text-gray-300">HeadyArmistice for defense integrators (per deployment).</p>
+                    <div class="text-gray-400">Target: $1M/year per licensed integration, scoped by safety audits.</div>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">B2C Subscription</div>
+                    <p class="text-gray-300">HeadySymphony creator plan.</p>
+                    <div class="text-gray-400">Target: $20/month with usage-based overages for heavy renders.</div>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">Enterprise Infrastructure</div>
+                    <p class="text-gray-300">Liquid Cloud infrastructure bundle.</p>
+                    <div class="text-gray-400">Target: 30% markup on infrastructure + compliance support.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="py-24 bg-zinc-950 border-y border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Roadmap (Timeline)</h2>
+            <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">Q2 2026</div>
+                    <p class="text-gray-300">HeadySymphony Beta + HeadyReflect enforcement pipeline.</p>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">Q4 2026</div>
+                    <p class="text-gray-300">Trust Center launch + MCP Gateway adoption across verticals.</p>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">Q2 2027</div>
+                    <p class="text-gray-300">HeadyConductor orchestration scale-out + HeadyCoin PoPS pilot.</p>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-3">
+                    <div class="mono text-green-400">Q4 2027</div>
+                    <p class="text-gray-300">HeadyBio full release with RAM-only processing guarantees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Bios -->
+    <section class="py-24 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Team Bios</h2>
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <div class="patent-card p-6 rounded-xl space-y-2">
+                    <div class="mono text-green-400">Eric Haywood</div>
+                    <p class="text-gray-300">Founder & Chief Architect — vision, patents, and platform direction.</p>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-2">
+                    <div class="mono text-green-400">Head of Safety Engineering (Planned)</div>
+                    <p class="text-gray-300">Owns HeadyGuard safety controls, threat modeling, and risk gates.</p>
+                </div>
+                <div class="patent-card p-6 rounded-xl space-y-2">
+                    <div class="mono text-green-400">Legal & Policy Director (Planned)</div>
+                    <p class="text-gray-300">Leads compliance, governance alignment, and regulatory strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Wrapper -->
+    <section class="py-24 bg-zinc-950 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="patent-card p-8 rounded-xl space-y-4">
+                <h2 class="text-3xl font-bold">Legal Wrapper</h2>
+                <p class="text-gray-300">Privacy Policy: We do not sell data. We charge a fair price for tools so we never have to monetize people.</p>
+                <p class="text-gray-400">Token Terms: HeadyCoin is positioned as a utility/commodity token and requires compliance review prior to launch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Patents (The Tech) -->
+    <section id="patents" class="py-24 bg-black border-y border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold">The 36 Pillars</h2>
+                    <p class="text-gray-400 mt-2">We didn't just write a mission statement. We filed the patents to enforce it.</p>
+                </div>
+                <div class="mono text-green-500 text-sm mt-4 md:mt-0">
+                    ASSIGNEE: HEADYSYSTEMS INC.<br>
+                    JURISDICTION: COLORADO, USA
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Stack 1: Hardware -->
+                <div class="space-y-4">
+                    <h4 class="mono text-xs font-bold text-gray-500 border-b border-gray-800 pb-2">I. THE HARDWARE VAULT</h4>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #01</div>
+                        <div class="font-bold">PTACA</div>
+                        <div class="text-xs text-gray-400 mt-1">Physical Trust-Anchored Authorization. The unhackable key.</div>
+                    </div>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #06</div>
+                        <div class="font-bold">Secure Mesh</div>
+                        <div class="text-xs text-gray-400 mt-1">Hardware-enforced private networking. The invisible internet.</div>
+                    </div>
+                </div>
+
+                <!-- Stack 2: Safety -->
+                <div class="space-y-4">
+                    <h4 class="mono text-xs font-bold text-gray-500 border-b border-gray-800 pb-2">II. THE AI CONSTITUTION</h4>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #21</div>
+                        <div class="font-bold">HeadyGuard</div>
+                        <div class="text-xs text-gray-400 mt-1">Asymptotic Safety Limiter. The digital fuse that prevents harm.</div>
+                    </div>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #22</div>
+                        <div class="font-bold">HeadyArmistice</div>
+                        <div class="text-xs text-gray-400 mt-1">Human-in-the-Loop Kinetic Interlock. The war crime switch.</div>
+                    </div>
+                </div>
+
+                <!-- Stack 3: Society -->
+                <div class="space-y-4">
+                    <h4 class="mono text-xs font-bold text-gray-500 border-b border-gray-800 pb-2">III. THE CULTURE STACK</h4>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #18</div>
+                        <div class="font-bold">HeadySymphony</div>
+                        <div class="text-xs text-gray-400 mt-1">Narrative-to-MIDI generation. You own the master.</div>
+                    </div>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #27</div>
+                        <div class="font-bold">HeadyFest</div>
+                        <div class="text-xs text-gray-400 mt-1">Crowd-controlled event scheduling. The vibe is the algorithm.</div>
+                    </div>
+                </div>
+
+                <!-- Stack 4: Logic -->
+                <div class="space-y-4">
+                    <h4 class="mono text-xs font-bold text-gray-500 border-b border-gray-800 pb-2">IV. THE LOGIC CORE</h4>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #29</div>
+                        <div class="font-bold">HeadyReflect</div>
+                        <div class="text-xs text-gray-400 mt-1">Socratic Validation Loop. AI that thinks before it acts.</div>
+                    </div>
+                    <div class="p-4 border border-white/10 rounded bg-zinc-900/50">
+                        <div class="text-green-400 font-bold text-sm">PATENT #34</div>
+                        <div class="font-bold">HeadyPhi</div>
+                        <div class="text-xs text-gray-400 mt-1">Golden Ratio Optimization. Natural growth, not binary force.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section id="mission" class="py-32 flex items-center justify-center text-center">
+        <div class="max-w-4xl px-6">
+            <h2 class="text-sm mono text-green-500 mb-6 tracking-widest">THE MISSION</h2>
+            <p class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+                "To democratize Artificial Intelligence as a sovereign public good—Universally Distributed, <span class="text-white">Verifiably Secure</span>, and <span class="gold-text">Mathematically Harmless</span>."
+            </p>
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-gray-500 max-w-xl">
+                    We are not building a tech giant. We are building a Public Trust.
+                    <br>Two entities. One goal.
+                </p>
+                <div class="flex gap-8 mt-8">
+                    <div class="text-left">
+                        <div class="mono text-white font-bold">HeadySystems Inc.</div>
+                        <div class="text-xs text-gray-500">The Fortress (C-Corp)</div>
+                    </div>
+                    <div class="h-10 w-px bg-gray-800"></div>
+                    <div class="text-left">
+                        <div class="mono text-white font-bold">HeadyConnection</div>
+                        <div class="text-xs text-gray-500">The Community (Non-Profit)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-black py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-left">
+                <div class="mono font-bold text-lg">HEADY<span class="text-gray-500">FEDERATION</span></div>
+                <div class="text-xs text-gray-600 mt-1">EST. 2026 | FORT COLLINS, COLORADO</div>
+            </div>
+            <div class="text-xs text-gray-600 mono text-right">
+                <p>PROTECTED BY 36 PROVISIONAL PATENTS</p>
+                <p>&copy; 2026 HEADYSYSTEMS INC. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple GSAP animations for entry
+        gsap.registerPlugin(ScrollTrigger);
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!reduceMotion) {
+            gsap.from(".hero-bg h1", { opacity: 0, y: 50, duration: 1, delay: 0.2 });
+            gsap.from(".hero-bg p", { opacity: 0, y: 20, duration: 1, delay: 0.5 });
+
+            gsap.utils.toArray('.patent-card').forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    delay: i * 0.1
+                });
+            });
+        }
+    </script>
+</body>
+</html>

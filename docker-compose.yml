@@ -1,0 +1,76 @@
+services:
+  heady-conductor:
+    build:
+      context: ./heady_conductor
+    container_name: heady-conductor
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - NODE_ENV=production
+      - ALLOWED_SPOKES=corrections,bio,legacy,sandbox,junior
+    networks:
+      - heady-legacy
+      - heady-corrections
+      - heady-bio
+      - heady-sandbox
+      - heady-junior
+
+  heady-legacy:
+    build:
+      context: ./heady_legacy
+    container_name: heady-legacy
+    environment:
+      - HUB_URL=http://heady-conductor:8000
+      - ENDPOINT_URL=http://heady-legacy:8000
+    networks:
+      - heady-legacy
+
+  heady-corrections:
+    build:
+      context: ./heady_corrections
+    container_name: heady-corrections
+    environment:
+      - HUB_URL=http://heady-conductor:8000
+      - ENDPOINT_URL=http://heady-corrections:8000
+      - DRIFT_THRESHOLD=7
+    networks:
+      - heady-corrections
+
+  heady-bio:
+    build:
+      context: ./heady_bio
+    container_name: heady-bio
+    environment:
+      - HUB_URL=http://heady-conductor:8000
+      - ENDPOINT_URL=http://heady-bio:8000
+      - STORAGE_MODE=MEMORY_ONLY
+    networks:
+      - heady-bio
+
+  heady-sandbox:
+    build:
+      context: ./heady_sandbox
+    container_name: heady-sandbox
+    environment:
+      - HUB_URL=http://heady-conductor:8000
+      - ENDPOINT_URL=http://heady-sandbox:8000
+      - MASK_PII=true
+    networks:
+      - heady-sandbox
+
+  heady-junior:
+    build:
+      context: ./heady_junior
+    container_name: heady-junior
+    environment:
+      - HUB_URL=http://heady-conductor:8000
+      - ENDPOINT_URL=http://heady-junior:8000
+    networks:
+      - heady-junior
+
+networks:
+  heady-legacy:
+  heady-corrections:
+  heady-bio:
+  heady-sandbox:
+  heady-junior:

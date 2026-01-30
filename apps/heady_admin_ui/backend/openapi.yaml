@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: Heady Admin API
+  version: 0.1.0
+servers:
+  - url: http://localhost:9000
+paths:
+  /api/profile:
+    get:
+      summary: Get user profile
+      responses:
+        '200':
+          description: Profile
+    put:
+      summary: Update user profile
+      responses:
+        '200':
+          description: Profile
+  /api/tasks:
+    get:
+      summary: List tasks
+      responses:
+        '200': { description: Tasks }
+    post:
+      summary: Create task
+      responses:
+        '201': { description: Task created }
+  /api/tasks/{id}:
+    put:
+      summary: Update task
+      responses:
+        '200': { description: Task updated }
+    delete:
+      summary: Delete task
+      responses:
+        '204': { description: Task removed }
+  /api/documents:
+    get:
+      summary: List documents
+      responses:
+        '200': { description: Documents }
+    post:
+      summary: Create document
+      responses:
+        '201': { description: Document created }
+  /api/documents/{id}:
+    put:
+      summary: Update document
+      responses:
+        '200': { description: Document updated }
+    delete:
+      summary: Delete document
+      responses:
+        '204': { description: Document removed }
+  /api/events:
+    get:
+      summary: List events
+      responses:
+        '200': { description: Events }
+    post:
+      summary: Create event
+      responses:
+        '201': { description: Event created }
+  /api/events/{id}:
+    put:
+      summary: Update event
+      responses:
+        '200': { description: Event updated }
+    delete:
+      summary: Delete event
+      responses:
+        '204': { description: Event removed }
+  /api/messages:
+    get:
+      summary: List messages
+      responses:
+        '200': { description: Messages }
+    post:
+      summary: Create message
+      responses:
+        '201': { description: Message created }
+  /api/messages/{id}:
+    put:
+      summary: Update message
+      responses:
+        '200': { description: Message updated }
+    delete:
+      summary: Delete message
+      responses:
+        '204': { description: Message removed }
+  /api/finance:
+    get:
+      summary: List finance records
+      responses:
+        '200': { description: Finance records }
+    post:
+      summary: Create finance record
+      responses:
+        '201': { description: Finance record created }
+  /api/finance/{id}:
+    put:
+      summary: Update finance record
+      responses:
+        '200': { description: Finance record updated }
+    delete:
+      summary: Delete finance record
+      responses:
+        '204': { description: Finance record removed }
+  /api/audit:
+    get:
+      summary: List audit logs
+      responses:
+        '200': { description: Audit logs }

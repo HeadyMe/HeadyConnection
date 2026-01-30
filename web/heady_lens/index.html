@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HeadyLens | Interactive Body Demo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="headylens-frame" aria-hidden="true"></div>
+
+    <header class="headylens-header">
+      <div class="brand">HeadyLens</div>
+      <div class="tagline">Interactive Trust Anatomy</div>
+    </header>
+
+    <main class="headylens-main">
+      <canvas id="headylens-canvas" aria-label="HeadyLens 3D body model"></canvas>
+
+      <section id="overlay-panel" class="overlay" data-visible="true" aria-live="polite">
+        <h2 data-overlay-title>Select a body part</h2>
+        <p data-overlay-description>Hover or click on a highlighted region to learn more.</p>
+        <p class="label">Logic</p>
+        <p data-overlay-logic></p>
+        <p class="label">IP Reference</p>
+        <p data-overlay-ip></p>
+      </section>
+
+      <section id="headylens-controls" class="controls" aria-label="HeadyLens navigation controls">
+        <button type="button" data-action="reset" aria-label="Reset view">Reset View</button>
+        <button type="button" data-action="toggle-overlay" aria-label="Toggle overlay">Toggle Overlay</button>
+        <button type="button" data-part="heart" aria-label="Focus on heart">Heart</button>
+        <button type="button" data-part="brain" aria-label="Focus on brain">Brain</button>
+        <button type="button" data-part="left_arm" aria-label="Focus on arm">Arm</button>
+        <button type="button" data-part="right_arm" aria-label="Focus on right arm">Right Arm</button>
+        <button type="button" data-part="lungs" aria-label="Focus on lungs">Lungs</button>
+        <button type="button" data-part="eyes" aria-label="Focus on eyes">Eyes</button>
+        <button type="button" data-part="heady_make" aria-label="Focus on HeadyMake">HeadyMake</button>
+        <button type="button" data-part="heady_field" aria-label="Focus on HeadyField">HeadyField</button>
+        <button type="button" data-part="heady_legacy" aria-label="Focus on HeadyLegacy">HeadyLegacy</button>
+      </section>
+
+      <section class="instructions" aria-label="HeadyLens instructions">
+        <h3>Controls</h3>
+        <ul>
+          <li>Drag to rotate, scroll to zoom.</li>
+          <li>Hover to highlight a part, click to zoom.</li>
+          <li>Use the buttons to jump to a region.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

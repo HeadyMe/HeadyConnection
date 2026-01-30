@@ -1,0 +1,15 @@
+{
+  "upstreams": [
+    {
+      "name": "docs-guardian",
+      "baseUrl": "http://127.0.0.1:8765",
+      "allowedTools": ["docs.validate", "docs.sync"]
+    },
+    {
+      "name": "heady-reflect",
+      "baseUrl": "http://127.0.0.1:8770",
+      "allowedTools": ["reflect.prompt", "reflect.score"]
+    }
+  ],
+  "destructiveTools": ["ops.delete", "infra.destroy"]
+}

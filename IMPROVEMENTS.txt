@@ -1,0 +1,31 @@
+IMP-20260403-01 Add bundled glTF model and expanded body-part data for HeadyLens.
+IMP-20260403-02 Refactor HeadyLens interaction flow for async model loading.
+IMP-20260403-03 Add Heady Admin API scaffold with auth, CRUD, and audit logging.
+IMP-20260403-04 Add Heady Admin UI frontend shell with dashboard and control panel.
+IMP-20260403-05 Add admin UI build configuration, entrypoints, and styling.
+IMP-20260403-06 Add admin UI docs and deployment compose.
+IMP-20260403-07 Add admin UI validation tooling and Makefile target.
+IMP-20260403-08 Add patent assignment summary doc and Next-Gen assignment clarifications.
+IMP-20260403-09 Add receipt signing system for change logs.
+IMP-20260403-10 Add admin UI validation docs entry and runbook updates.
+IMP-20260404-01 Add builder security baselines for secrets scanning, dependency allowlists, and MFA attestations.
+IMP-20260404-02 Add MCP gateway JWT rotation, per-tool rate limits, and concurrency caps.
+IMP-20260404-03 Add MCP gateway metrics, trace context propagation, and alerting dashboards.
+IMP-20260404-04 Harden Nginx templates with CSP, HSTS, gzip compression, and cache headers.
+IMP-20260404-05 Add health and readiness endpoints across Nginx and MCP gateway.
+IMP-20260404-06 Add reliability runbooks for backups, disaster recovery, and scale-out.
+IMP-20260404-07 Add SLO definitions and operator overview docs.
+IMP-20260404-08 Add onboarding, API style guide, and release notes templates.
+IMP-20260404-09 Add linting configs and scripts for Markdown, JS, and PHP.
+IMP-20260404-10 Add autoscaling guardrails guidance and cache tuning notes.
+IMP-20260404-11 Add governed builder guardrails invention disclosure and provisional draft.
+IMP-20260405-01 Add HeadyMake, HeadyField, and HeadyLegacy prototype modules with demo scripts.
+IMP-20260405-02 Add HeadyMake/HeadyField/HeadyLegacy docs and docs index entries.
+IMP-20260405-03 Update HeadyLens demo with new modules and interactive hotspots.
+IMP-20260405-04 Update HeadyLens validation to require new module entries.
+IMP-20260405-05 Update Living Federation dashboard with new modules, demos, and status pills.
+IMP-20260405-06 Expand Living Federation patent index with HeadyMake/Field/Legacy entries.
+IMP-20260405-07 Add invention disclosures for HeadyMake, HeadyField, and HeadyLegacy.
+IMP-20260405-08 Draft provisional patents for HeadyMake, HeadyField, and HeadyLegacy.
+IMP-20260405-09 Update patent indexes and filing queue for new drafts.
+IMP-20260405-10 Extend IP integration map with HeadyMake/Field/Legacy modules.

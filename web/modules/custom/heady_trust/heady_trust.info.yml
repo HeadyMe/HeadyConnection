@@ -1,0 +1,8 @@
+name: Heady Trust Center
+type: module
+description: Trust Center module with governance-first pages and system status block.
+core_version_requirement: ^11
+package: Heady
+
+dependencies:
+  - drupal:block

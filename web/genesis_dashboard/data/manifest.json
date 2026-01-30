@@ -1,0 +1,52 @@
+{
+  "snapshot": {
+    "version": "kaizen-pack-0.1",
+    "generated_at": "2026-01-22T00:00:00Z",
+    "source": "heady-kaizen"
+  },
+  "status": [
+    {
+      "label": "Kaizen Cycle",
+      "value": "Active",
+      "detail": "3 improvements in progress"
+    },
+    {
+      "label": "Iteration Pipeline",
+      "value": "Stable",
+      "detail": "it1-it4 manifests verified"
+    },
+    {
+      "label": "DocsGuardian",
+      "value": "Passing",
+      "detail": "0 drift alerts"
+    }
+  ],
+  "kaizen": [
+    {
+      "title": "Kaizen-01",
+      "summary": "Reduce duplicate metadata in demo manifests.",
+      "owner": "Ops",
+      "status": "Queued"
+    },
+    {
+      "title": "Kaizen-02",
+      "summary": "Add integrity gate for iteration manifests.",
+      "owner": "Platform",
+      "status": "In Progress"
+    }
+  ],
+  "signals": [
+    {
+      "title": "Drift Guard",
+      "summary": "Docs drift checks healthy.",
+      "owner": "DocsGuardian",
+      "status": "Green"
+    },
+    {
+      "title": "Manifest Integrity",
+      "summary": "Schema gating enforced.",
+      "owner": "Security",
+      "status": "Green"
+    }
+  ]
+}

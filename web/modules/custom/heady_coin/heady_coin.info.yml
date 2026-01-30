@@ -1,0 +1,8 @@
+name: Heady Coin
+type: module
+description: Compliance-first informational pages for the HeadyCoin initiative.
+core_version_requirement: ^11
+package: Heady
+
+dependencies:
+  - drupal:block

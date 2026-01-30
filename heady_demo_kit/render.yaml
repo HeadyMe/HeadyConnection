@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: heady-demo-kit
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -b 0.0.0.0:$PORT --chdir heady_project/src api_server:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
